@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.hariomchemicals.com/sitemap.xml
+
+# Crawl delay (optional - adjust if needed)
+Crawl-delay: 1
+
+# Block specific paths if needed (uncomment if required)
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /test/
