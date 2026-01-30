@@ -1,5 +1,15 @@
 # Video Upload Guide for Hariom Chemicals Website
 
+## 🎉 NEW: Interactive Video Gallery!
+
+Your website now features a **YouTube-style interactive video gallery** with:
+- ✅ **Click-to-play** video thumbnails
+- ✅ **Previous/Next** navigation buttons
+- ✅ **Fullscreen expand** viewer mode
+- ✅ **4 video slots** ready for your content
+- ✅ **Beautiful placeholders** until videos are uploaded
+- ✅ **Mobile responsive** design
+
 ## 📹 Video Requirements
 
 ### Accepted Formats

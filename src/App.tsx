@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { ProductCategory } from "./components/ProductCategory";
+import { ProductShowcase } from "./components/ProductShowcase";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
@@ -374,65 +375,11 @@ export default function App() {
           <div className="text-center mb-12">
             <h2 className="text-4xl mb-4 text-green-700">Product Showcase</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              See our premium menthol products in action - crystal clear quality you can trust
+              Explore our premium products with detailed descriptions. Click any item to view, use Previous/Next to navigate, or expand for detailed product information with full specifications.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Video 1: Isoborneol Flakes */}
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow border-2 border-green-100">
-              <CardContent className="p-0">
-                <div className="relative bg-gray-100 aspect-[9/16]">
-                  {/* Placeholder for video - Replace with actual video once uploaded */}
-                  <video 
-                    className="w-full h-full object-cover"
-                    controls
-                    playsInline
-                    poster="/videos/isoborneol-thumbnail.jpg"
-                  >
-                    <source src="/videos/isoborneol-flakes.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-green-700">Isoborneol Flakes</h3>
-                  <p className="text-sm text-muted-foreground">
-                    High-purity isoborneol flakes perfect for pharmaceutical and cosmetic applications. Witness the crystal-clear quality and perfect flake structure.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Video 2: Menthol Crystals */}
-            <Card className="overflow-hidden hover:shadow-xl transition-shadow border-2 border-green-100">
-              <CardContent className="p-0">
-                <div className="relative bg-gray-100 aspect-[9/16]">
-                  {/* Placeholder for video - Replace with actual video once uploaded */}
-                <video 
-                  className="w-full h-full object-cover"
-                  controls
-                  playsInline
-                  poster="/videos/menthol-thumbnail.jpg"
-                >
-                  <source src="/videos/menthol-crystals.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-green-700">Menthol Crystals</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Premium menthol bold crystals extracted from natural Mentha Arvensis. See the brilliant clarity and perfect crystalline structure of our product.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground">
-              <strong>Note:</strong> These product videos showcase the quality and purity of our menthol products. Contact us for bulk orders and custom requirements.
-            </p>
-          </div>
+          <ProductShowcase />
         </div>
       </section>
 
