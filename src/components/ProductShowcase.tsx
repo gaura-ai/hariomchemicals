@@ -573,16 +573,25 @@ Every batch is:
   const currentProduct = products[currentIndex];
 
   const handlePrevious = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
     setCurrentIndex((prev) => (prev === 0 ? products.length - 1 : prev - 1));
     setIsPlaying(false);
   };
 
   const handleNext = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
     setCurrentIndex((prev) => (prev === products.length - 1 ? 0 : prev + 1));
     setIsPlaying(false);
   };
 
   const handleProductSelect = (index: number) => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
     setCurrentIndex(index);
     setIsPlaying(false);
   };
@@ -614,7 +623,6 @@ Every batch is:
       } else {
         videoRef.current.play();
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -629,13 +637,18 @@ Every batch is:
       return (
         <div className="absolute inset-0">
           <video
-            ref={videoRef}
+            key={`bg-${currentProduct.id}`}
+            ref={isExpanded ? null : videoRef}
             className="w-full h-full object-cover"
-            controls
+            controls={!isExpanded}
             playsInline
             poster={currentProduct.thumbnail}
             onPlay={() => setIsPlaying(true)}
+            onPlaying={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+            loop
+            controlsList="nodownload"
           >
             <source src={currentProduct.mediaUrl} type="video/mp4" />
             Your browser does not support the video tag.
@@ -684,12 +697,12 @@ Every batch is:
                   </button>
 
                   {/* Play Overlay for Video */}
-                  {currentProduct.mediaType === 'video' && (
+                  {currentProduct.mediaType === 'video' && !isPlaying && (
                     <button
                       onClick={handlePlayPause}
-                      className="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition-all group"
+                      className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition-all group z-10"
                     >
-                      <div className="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                      <div className="w-20 h-20 bg-green-600/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                         <Play className="w-10 h-10 text-white ml-1" fill="white" />
                       </div>
                     </button>
@@ -849,12 +862,17 @@ Every batch is:
                 <div className="relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl">
                   {currentProduct.mediaType === 'video' ? (
                     <video
+                      key={`fg-${currentProduct.id}`}
                       ref={videoRef}
                       className="w-full h-full"
                       controls
                       autoPlay
                       playsInline
                       poster={currentProduct.thumbnail}
+                      onPlay={() => setIsPlaying(true)}
+                      onPlaying={() => setIsPlaying(true)}
+                      onPause={() => setIsPlaying(false)}
+                      onEnded={() => setIsPlaying(false)}
                     >
                       <source src={currentProduct.mediaUrl} type="video/mp4" />
                       Your browser does not support the video tag.
