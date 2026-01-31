@@ -7,12 +7,12 @@ import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import { Textarea } from "./components/ui/textarea";
 import { Badge } from "./components/ui/badge";
-import { 
-  Leaf, 
-  Shield, 
-  Truck, 
-  Award, 
-  Droplets, 
+import {
+  Leaf,
+  Shield,
+  Truck,
+  Award,
+  Droplets,
   Flower2,
   Sparkles,
   Phone,
@@ -109,7 +109,7 @@ export default function App() {
   useEffect(() => {
     // Update document title
     document.title = "Hariom Chemicals - Premium Natural & Essential Oils | Chandausi, Uttar Pradesh";
-    
+
     // Add structured data for SEO
     const localBusinessSchema = {
       "@context": "https://schema.org",
@@ -146,7 +146,27 @@ export default function App() {
       "areaServed": {
         "@type": "Country",
         "name": "India"
-      }
+      },
+      "subjectOf": [
+        {
+          "@type": "VideoObject",
+          "name": "Menthol Crystals (Bold) - Product Showcase",
+          "description": "Premium quality natural Menthol Crystals by Hariom Chemicals. Trusted by pharmaceutical and food industries.",
+          "thumbnailUrl": "https://www.hariomchemicals.com/videos/menthol-thumbnail.jpg",
+          "uploadDate": "2024-01-01T08:00:00+05:30",
+          "contentUrl": "https://www.hariomchemicals.com/videos/menthol-crystals.mp4",
+          "embedUrl": "https://www.hariomchemicals.com/"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Thaal Kapoor (Slab Camphor) - Premium Quality",
+          "description": "Pure Thaal Kapoor (Slab Camphor) for religious and medicinal use. Crystal clear purity and strong aroma.",
+          "thumbnailUrl": "https://www.hariomchemicals.com/videos/thaal-kapoor-thumbnail.png",
+          "uploadDate": "2024-01-01T08:00:00+05:30",
+          "contentUrl": "https://www.hariomchemicals.com/videos/thaal-kapoor.mp4",
+          "embedUrl": "https://www.hariomchemicals.com/"
+        }
+      ]
     };
 
     // Add schema script to head
@@ -187,16 +207,16 @@ export default function App() {
                   Your trusted source for pure, high-quality essential oils, mint products, and natural aromatic solutions from Chandausi, Uttar Pradesh
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="secondary"
                     onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
                   >
                     Explore Products
                   </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
+                  <Button
+                    size="lg"
+                    variant="outline"
                     className="bg-transparent border-white text-white hover:bg-white hover:text-green-600"
                     onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   >
